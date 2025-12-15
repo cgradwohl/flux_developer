@@ -16,27 +16,27 @@ generate final ConfigMaps
 ## Example repo layout
 
 ```bash
-tenant-repo/
-├── base/
-│   ├── beetle/
+flux_developer/
+├── beetle/
+│   ├── base/
 │   │   └── config.yaml
-│   ├── sonar/
+│   ├── dev/
 │   │   └── config.yaml
-│   └── tiger/
+│   └── prd/
 │       └── config.yaml
-├── dev/
-│   ├── beetle/
+├── sonar/
+│   ├── base/
 │   │   └── config.yaml
-│   ├── sonar/
+│   ├── dev/
 │   │   └── config.yaml
-│   └── tiger/
+│   └── prd/
 │       └── config.yaml
-└── production/
-    ├── beetle/
+└── tiger/
+    ├── base/
     │   └── config.yaml
-    ├── sonar/
+    ├── dev/
     │   └── config.yaml
-    └── tiger/
+    └── prd/
         └── config.yaml
 ```
 
@@ -77,40 +77,4 @@ jwt:
   useHmac: true
 redis:
   awsRegion: "us-west-2"
-```
-
-## Example kustomizations
-
-In this example repoisotry setup, a differnet, corresponding repository defines
-all the kustomizations and kubernetes manifests required for the microservice
-deployment.
-
-`dev/kustomization.yaml`
-
-```yaml
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: apps
-resources:
-  - github.com/your-org/flux_developer//base?ref=main
-configMapGenerator:
-  - name: dev-beetle-config
-    files:
-      - github.com/your-org/tenant-repo//base/beetle/config.yaml
-      - github.com/your-org/tenant-repo//dev/beetle/config.yaml
-```
-
-`prd/kustomization.yaml`
-
-```yaml
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: apps
-resources:
-  - github.com/your-org/flux_developer//base?ref=main
-configMapGenerator:
-  - name: prd-beetle-config
-    files:
-      - github.com/your-org/tenant-repo//base/beetle/config.yaml
-      - github.com/your-org/tenant-repo//prd/beetle/config.yaml
 ```
