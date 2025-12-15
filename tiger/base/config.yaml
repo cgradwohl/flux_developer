@@ -1,0 +1,20 @@
+jwt:
+  hmacSecret: "PLAYQ_JWT_TIGER_SECRET_KEY"
+  publicKey: "PLAYQ_JWT_TIGER_PUBLIC_KEY"
+  scheme: "Bearer"
+  useHmac: false
+
+redis:
+  authMode: "AWS_IAM"
+  awsRegion: "us-east-1"
+  awsReplicationGroupId: "live-tiger"
+  awsUserId: "live-tiger"
+  endpoint: "rediss://clustercfg.live-tiger.12345.use1.cache.amazonaws.com:1234"
+  integrationCheck: true
+  password: ""
+  serverMode: "CLUSTER"
+  user: ""
+
+postgres:
+  username: PLAYQ_POSTGRES_TIGER_USERNAME
+  password: PLAYQ_POSTGRES_TIGER_PASSWORD
