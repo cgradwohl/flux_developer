@@ -8,4 +8,4 @@ configMapGenerator:
   - name: beetle-config
     behavior: merge
     files:
-      - config.yaml
+      - dev-config.yaml=config.yaml
