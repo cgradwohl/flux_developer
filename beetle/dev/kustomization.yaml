@@ -4,5 +4,5 @@ kind: Kustomization
 configMapGenerator:
   - name: beetle-config
     files:
-      - ../../base/config.yaml # base defaults
+      - ../base/config.yaml # base defaults
       - config.yaml # dev overrides
