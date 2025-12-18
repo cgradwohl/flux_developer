@@ -1,0 +1,11 @@
+aws:
+  company: playq
+  namespace: prd
+  s3:
+    buckets:
+      - bucketName: attachments
+        overrideName: ""
+    connectionTimeout: 10 seconds
+  tags:
+    deployment: live
+    environment: production

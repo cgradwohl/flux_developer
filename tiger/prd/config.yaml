@@ -1,4 +1,0 @@
-jwt:
-  useHmac: true
-redis:
-  awsRegion: "us-west-2"
