@@ -1,4 +1,21 @@
-jwt:
-  useHmac: true
+postgres:
+  defTimeout: 20 seconds
+  jdbcDriver: org.postgresql.Driver
+  namespaceSchema: public
+  password: PLAYQ_SECRET_POSTGRES_PASSWORD
+  synchronizer:
+    acquireRetrySleep: 2 seconds
+    ttl: 5 minutes
+  url: PLAYQ_ENV_POSTGRES_URL
+  user: beetle
+
 redis:
-  awsRegion: "us-west-2"
+  authMode: AWS_IAM
+  awsRegion: us-east-1
+  awsReplicationGroupId: PLAYQ_SECRET_BEETLE_REDIS_USER_ID
+  awsUserId: PLAYQ_SECRET_BEETLE_REDIS_USER_ID
+  endpoint: PLAYQ_ENV_BEETLE_REDIS_ENDPOINT
+  integrationCheck: true
+  password: PLAYQ_SECRET_REDIS_PASSWORD
+  serverMode: CLUSTER
+  user: PLAYQ_SECRET_BEETLE_REDIS_USERNAME
