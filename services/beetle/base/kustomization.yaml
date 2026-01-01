@@ -5,9 +5,6 @@ kind: Kustomization
 
 configMapGenerator:
   - name: beetle-config
-    files:
-      - global-config.yaml
-      - service-config.yaml
 
 generatorOptions:
   disableNameSuffixHash: true
