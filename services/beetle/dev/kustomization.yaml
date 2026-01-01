@@ -1,0 +1,15 @@
+# this is a unique implementation or instance of the contract defined in the
+# service base
+# this is env dependent
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../base
+
+configMapGenerator:
+  - name: beetle-config
+    behavior: replace
+    files:
+      - global-config.yaml=../../../environments/dev/global-config.yaml
+      - service-config.yaml=service-config.yaml

@@ -1,0 +1,13 @@
+# this is contract that defines how the service config map with be produced
+# this is env independent
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+configMapGenerator:
+  - name: beetle-config
+    files:
+      - global-config.yaml
+      - service-config.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
