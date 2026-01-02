@@ -1,5 +1,5 @@
 postgres:
-  defTimeout: 69 seconds
+  defTimeout: 4 seconds
   jdbcDriver: org.postgresql.Driver
   namespaceSchema: public
   password: PLAYQ_SECRET_POSTGRES_PASSWORD
