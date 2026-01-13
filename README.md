@@ -69,3 +69,58 @@ data:
   service-config.yaml: |
     ...
 ```
+
+## Service Image
+
+To build the service image, first point minikube to the correct minikube
+profile:
+
+```bash
+eval $(minikube -p dev docker-env)
+```
+
+Now, verfify you are evaled into dev:
+
+```bash
+docker info | grep Name
+```
+
+Next, build the image:
+
+```bash
+cd flux_developer/services/beetle
+
+docker build -t beetle:latest .
+```
+
+Now, verify:
+
+```bash
+docker images | grep beetle
+
+```
+
+### How does the deployment template reference the image?
+
+The runtime deployment has:
+
+```yaml
+image: app:latest
+imagePullPolicy: IfNotPresent
+```
+
+Each service has a kustomization:
+
+```yaml
+images:
+  - name: app
+    newName: beetle
+    newTag: latest
+```
+
+Therefore the final rendered deployment contains:
+
+```yaml
+image: beetle:latest
+imagePullPolicy: IfNotPresent
+```

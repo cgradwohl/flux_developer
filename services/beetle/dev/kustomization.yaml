@@ -8,7 +8,7 @@ resources:
   - ../base
 
 configMapGenerator:
-  - name: beetle-config
+  - name: config
     behavior: replace
     files:
       - global-config.yaml=../../../environments/dev/global-config.yaml
