@@ -5,8 +5,5 @@ kind: Kustomization
 
 namespace: default
 
-configMapGenerator:
-  - name: beetle-config
-
-generatorOptions:
-  disableNameSuffixHash: true
+resources:
+  - ../../runtime

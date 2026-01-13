@@ -8,8 +8,11 @@ resources:
   - ../base
 
 configMapGenerator:
-  - name: config
+  - name: beetle-config
     behavior: replace
     files:
       - global-config.yaml=../../../environments/dev/global-config.yaml
       - service-config.yaml=service-config.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
