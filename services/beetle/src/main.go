@@ -36,7 +36,7 @@ func main() {
 
 	pretty, err := json.MarshalIndent(out, "", "  ")
 	if err != nil {
-		log.Fatalf("ERROR: failed to marshal JSON: %v", err)
+		log.Fatalf("ERROR: failed to marshall JSON: %v", err)
 	}
 
 	fmt.Println(string(pretty))
